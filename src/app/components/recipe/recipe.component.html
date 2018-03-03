@@ -1,0 +1,9 @@
+<div *ngIf="recipe">
+  <div class="card" routerLink="{{recipe.id}}">
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.name}}</h5>
+      <p class="card-text">{{recipe.description}}</p>
+      <img [src]="recipe.imagePath" class="img-thumbnail" style="float:right; width:90px">
+    </div>
+  </div>
+</div>

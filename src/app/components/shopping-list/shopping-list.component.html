@@ -1,3 +1,33 @@
-<p>
-  shopping-list works!
-</p>
+<form #userForm="ngForm">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label style="font-weight:bold;" for="name">Name</label>
+          <input [readonly]="rdonly" required class="form-control" type="text" name="name" #Tname="ngModel" [(ngModel)]="name">
+          <div *ngIf="Tname.touched && Tname.invalid" class="alert-error">
+              <p *ngIf="Tname.errors.required">Name is required.</p>
+            </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <label style="font-weight:bold;" for="amount">Amount</label>
+          <input [readonly]="rdonly" required class="form-control" type="text" name="amount" [(ngModel)]="amount" #Tamount="ngModel">
+          <div *ngIf="Tamount.touched && Tamount.invalid" class="alert-error">
+            <p *ngIf="Tamount.errors.required">Amount is required.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+    <button class="btn btn-success" type="submit"  (click)="addItem(userForm)" [disabled]="userForm.invalid">Add</button>
+		<button class="btn btn-danger" (click)="deleteItem()" >Delete</button>
+		<button class="btn btn-primary" type="reset">Clear</button>
+</form> 
+<hr> 
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor= "let item of shoppingList">
+          <app-shopping-list-item [shoppingListItem]="item"></app-shopping-list-item>
+        </li>
+      </ul>
+</div>
