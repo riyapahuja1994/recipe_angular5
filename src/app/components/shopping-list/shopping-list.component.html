@@ -1,4 +1,4 @@
-<form #userForm="ngForm">
+<form #shoppingForm="ngForm">
   <div class="row">
     <div class="col-md-5">
       <div class="form-group">
@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-    <button class="btn btn-success" type="submit"  (click)="addItem(userForm)" [disabled]="userForm.invalid">Add</button>
+    <button class="btn btn-success" type="submit"  (click)="addItem(shoppingForm)" [disabled]="shoppingForm.invalid">Add</button>
 		<button class="btn btn-danger" (click)="deleteItem()" >Delete</button>
 		<button class="btn btn-primary" type="reset">Clear</button>
 </form> 

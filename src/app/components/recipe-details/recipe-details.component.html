@@ -1,6 +1,6 @@
 <div>
-  <img src="https://drop.ndtv.com/albums/COOKS/pasta-vegetarian/pastaveg_640x480.jpg" alt="Pasta" class="img-thumbnail">
-  <h3 class="card-title">Pasta</h3>
+  <img [src]="recipe.imagePath" alt="Pasta" style="width:300px;height:300px" class="img-thumbnail">
+  <h2 class="card-title">{{recipe.name}}</h2>
   <!-- Example single danger button -->
   <div class="btn-group" dropdown>
     <button dropdownToggle type="button" style="background-color:navy;" class="btn btn-secondary dropdown-toggle">
@@ -8,9 +8,19 @@
     </button>
     <ul *dropdownMenu class="dropdown-menu" role="menu">
       <li role="menuitem"><a class="dropdown-item" routerLink="/shopping-list">To Shopping List</a></li>
-      <li role="menuitem"><a class="dropdown-item" routerLink="/edit">Edit Recipe</a></li>
+      <li role="menuitem"><a class="dropdown-item" routerLink="edit">Edit Recipe</a></li>
       <li role="menuitem"><a class="dropdown-item" routerLink="#">Delete Recipe</a></li>
     </ul>
   </div>
-      
+  <br><br>
+  <p>{{ recipe.description }}</p>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor= "let ingredient of recipe.ingredients">
+        {{ingredient.IngredientName}}
+        ({{ingredient.quantity}})
+      </li>
+      </ul>
+  </div>
+  <router-outlet></router-outlet>
 </div>

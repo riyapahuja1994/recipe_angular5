@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { Component, OnInit, Input } from '@angular/core';
+import { Irecipe } from '../../interfaces/irecipe'; 
+import { RecipesFetchService } from '../../services/recipes-fetch.service';
+import { Router,ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-recipe-details',
@@ -8,9 +10,13 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  constructor() { }
+  recipe : Irecipe;
+  constructor(private activatedRoute:ActivatedRoute, private RecipesFetchService : RecipesFetchService) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params =>{
+      this.recipe = this.RecipesFetchService.getRecipeById(+params['id']);
+    });
   }
 
 }

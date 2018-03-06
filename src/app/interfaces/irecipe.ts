@@ -3,4 +3,9 @@ export interface Irecipe {
     name:string;
     description:string;
     imagePath:string;
+    ingredients: Iingredients[];
 }
+ interface Iingredients {
+     IngredientName: string;
+     quantity: number;
+ }

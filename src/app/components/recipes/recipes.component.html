@@ -6,12 +6,12 @@
     </div>
     <br>
     <ul class="list-group">
-      <li style="padding:0px;border:0px;margin:0px" class="list-group-item" *ngFor= "let recipe of recipeList" (click)="getRecipeDetails(recipe.id)">
+      <li style="padding:0px;border:0px;margin:0px" class="list-group-item" *ngFor= "let recipe of recipeList">
         <app-recipe [recipe]="recipe"></app-recipe>
       </li>
       </ul>
   </div>
-  <div class="col-offset-2 col-md-6 col-lg-6 col-xl-6">
+  <div class="col-offset-2 col-md-8 col-lg-8 col-xl-8">
       <router-outlet></router-outlet>
   </div>
 </div>
