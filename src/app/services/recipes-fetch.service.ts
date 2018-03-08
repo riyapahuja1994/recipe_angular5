@@ -52,4 +52,8 @@ export class RecipesFetchService {
   getRecipeById(id: number): Irecipe{
     return this._recipeList.filter(recipe => recipe.id === id)[0];
   }
+
+  addNewRecipe(recipe: Irecipe){
+    this._recipeList.push(recipe)
+  }
 }

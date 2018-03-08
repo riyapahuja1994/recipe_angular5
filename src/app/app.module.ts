@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -32,6 +32,7 @@ import { RecipesFetchService } from './services/recipes-fetch.service';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     AppBootstrapModule

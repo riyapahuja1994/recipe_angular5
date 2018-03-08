@@ -1,10 +1,7 @@
 <div class="row">
   <div class="col-md-4 col-lg-4 col-xl-4">
-    <div class="row">
-      <button class="btn btn-success">New Recipe</button>
-      <hr>
-    </div>
-    <br>
+      <button routerLink="new" class="btn btn-success">New Recipe</button>
+    <hr>
     <ul class="list-group">
       <li style="padding:0px;border:0px;margin:0px" class="list-group-item" *ngFor= "let recipe of recipeList">
         <app-recipe [recipe]="recipe"></app-recipe>

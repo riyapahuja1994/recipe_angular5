@@ -5,11 +5,13 @@ import { ShoppingListComponent } from '../components/shopping-list/shopping-list
 import { RecipeDetailsComponent } from '../components/recipe-details/recipe-details.component';
 import { PlaceholderComponent } from '../components/placeholder/placeholder.component';
 import { EditRecipeComponent } from '../components/edit-recipe/edit-recipe.component';
+import { NewRecipeComponent } from '../components/new-recipe/new-recipe.component';
 
 
 const appRoutes = [
   { path:'recipes', component: RecipesComponent, 
     children:[
+      { path:'new', component: NewRecipeComponent },      
       { path:':id', component: RecipeDetailsComponent },
       { path:':id/edit', component: EditRecipeComponent },
       { path:'', component: PlaceholderComponent }
