@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
+export interface CanComponentDeactivate{
+  confirm():boolean;
+}
+
 @Injectable()
-export class LeaveFormGuard implements CanActivate {
-  canActivate(
+export class LeaveFormGuard implements CanDeactivate<CanComponentDeactivate> {
+  canDeactivate(
+    component:CanComponentDeactivate,
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
+    return component.confirm();
   }
 }

@@ -19,4 +19,9 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
+  deleteRecipe(){
+    console.log("Delete Id",this.recipe.id);
+    this.RecipesFetchService.deleteRecipe(this.recipe.id);
+  }
+
 }

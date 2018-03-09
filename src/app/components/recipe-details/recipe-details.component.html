@@ -9,7 +9,7 @@
     <ul *dropdownMenu class="dropdown-menu" role="menu">
       <li role="menuitem"><a class="dropdown-item" routerLink="/shopping-list">To Shopping List</a></li>
       <li role="menuitem"><a class="dropdown-item" routerLink="edit">Edit Recipe</a></li>
-      <li role="menuitem"><a class="dropdown-item" routerLink="#">Delete Recipe</a></li>
+      <li role="menuitem"><a class="dropdown-item" (click)="deleteRecipe()" routerLink="\recipes">Delete Recipe</a></li>
     </ul>
   </div>
   <br><br>
@@ -17,8 +17,10 @@
   <div>
     <ul class="list-group">
       <li class="list-group-item" *ngFor= "let ingredient of recipe.ingredients">
+          <!-- <div *ngIf="(i!=undefined)"> -->
         {{ingredient.IngredientName}}
         ({{ingredient.quantity}})
+        <!-- </div> -->
       </li>
       </ul>
   </div>

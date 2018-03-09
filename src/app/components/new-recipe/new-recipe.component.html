@@ -1,8 +1,8 @@
 <div class="container">
 
-  <form [formGroup]="newRecipeForm" (ngSubmit)="submit()"> 
-      <button class="btn btn-success" type="submit" [disabled]="newRecipeForm.invalid">Save</button>
-      <button class="btn btn-danger">Cancel</button>
+  <form [formGroup]="newRecipeForm"> 
+      <button class="btn btn-success" type="submit" (click)="submit()" [disabled]="newRecipeForm.invalid">Save</button>
+      <button class="btn btn-danger" routerLink="/recipes">Cancel</button>
       <br><br>
     <!-- <div class="form-group">
       <label for="id">Id</label>
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="imagePath">Image Path</label>
+      <label style="font-weight:bold" for="imagePath">Image Path</label>
       <input type="text" formControlName="imagePath" class="form-control">
       <div *ngIf="newRecipeForm.controls.imagePath.touched && newRecipeForm.controls.imagePath.invalid" class="alert alert-danger">
         <p *ngIf="newRecipeForm.controls.imagePath.errors?.required">Image Path is required.</p>
@@ -25,7 +25,7 @@
     <br>
     <!-- <img [src]="recipe.imagePath" alt="Pasta" style="width:300px;height:300px" class="img-thumbnail"> -->
     <div class="form-group">
-      <label for="description">Description</label>
+      <label style="font-weight:bold" for="description">Description</label>
       <textarea rows="4" cols="50" formControlName="description" class="form-control"></textarea>
       <div *ngIf="newRecipeForm.controls.description.touched && newRecipeForm.controls.description.invalid" class="alert alert-danger">
         <p *ngIf="newRecipeForm.controls.description.errors?.required">Description is required.</p>
@@ -41,6 +41,7 @@
       <div [formGroupName]="i" class="input-group">
         <input type="text" class="form-control" formControlName="ingredientName" placeholder="Ingredient Name">
         <input style="margin-left: 10px;flex: 0.5 0.5 auto !important;" type="number" class="form-control" formControlName="quantity" placeholder="Quantity">
+        <i style="margin-left: 15px;margin-top:6px;font-size:25px;" (click)="deleteIngredient(i)" class="fas fa-times"></i>
       </div>
       </div>
     </div>

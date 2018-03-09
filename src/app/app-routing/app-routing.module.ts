@@ -6,14 +6,15 @@ import { RecipeDetailsComponent } from '../components/recipe-details/recipe-deta
 import { PlaceholderComponent } from '../components/placeholder/placeholder.component';
 import { EditRecipeComponent } from '../components/edit-recipe/edit-recipe.component';
 import { NewRecipeComponent } from '../components/new-recipe/new-recipe.component';
+import { LeaveFormGuard } from '../guards/leave-form.guard';
 
 
 const appRoutes = [
   { path:'recipes', component: RecipesComponent, 
     children:[
-      { path:'new', component: NewRecipeComponent },      
+      { path:'new', component: NewRecipeComponent , canDeactivate: [LeaveFormGuard]},      
       { path:':id', component: RecipeDetailsComponent },
-      { path:':id/edit', component: EditRecipeComponent },
+      { path:':id/edit', component: EditRecipeComponent, canDeactivate: [LeaveFormGuard] },
       { path:'', component: PlaceholderComponent }
     ]  },
   { path:'shopping-list', component: ShoppingListComponent },
@@ -21,6 +22,7 @@ const appRoutes = [
 	{ path:'**', redirectTo:'/recipes', pathMatch: 'full'}
 ]
 @NgModule({
+  providers:[LeaveFormGuard],
   imports:[
     RouterModule.forRoot(appRoutes)
   ],
